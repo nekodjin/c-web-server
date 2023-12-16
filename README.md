@@ -10,11 +10,13 @@ been tested on Linux.
 
 This project requires the following toolchain components to be accessible in
 PATH:
+
 - Python 3.11 or higher (as `python3`)
 - GPRBuild (as `gprbuild`)
 - GPRConfig (as `gprconfig`)
 - Clang-C
 - Makefile
+
 Toolchain components must be accessible through the listed binary name, if there
 is one.
 
