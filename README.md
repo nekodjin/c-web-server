@@ -15,6 +15,8 @@ PATH:
 - GPRConfig (as `gprconfig`)
 - Clang-C
 - Makefile
+Toolchain components must be accessible through the listed binary name, if there
+is one.
 
 Use `make` (or `make run`) to build and run the server. To build the server
 without running it, use `make build`. The server executable is called `server`.
