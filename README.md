@@ -17,9 +17,10 @@ PATH:
 - Makefile
 
 To begin, you'll need to run the setup script, `setup.py`. This will verify the
-toolchain components, and then automaticall register a toolchain configuration.
+toolchain components, and then automatically register a toolchain configuration.
 If you're missing any toolchain components, the script will notify you at this
-step.
+step. If you change any of the toolchain components, you can re-run the script
+to update your toolchain configuration.
 
 After setup, use `make` to build and start the server. To build the server
 without running it, use `make build`. The server binary is called `server`.
