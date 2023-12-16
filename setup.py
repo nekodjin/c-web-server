@@ -33,15 +33,24 @@ def verify_toolchain():
     print('Verifying the toolchain...')
 
     tools = [
-        "gprbuild",
-        "gprconfig",
-        "clang",
-        "make",
+        'gprbuild',
+        'gprconfig',
+        'clang',
+        'make',
     ]
+
+    missing_tools = []
 
     for tool in tools:
         if not tool_exists(tool):
-            panic(f'required toolchain component {tool} not found')
+            missing_tools.append(tool)
+
+    if 'clang' in missing_tools:
+        missing_tools.remove('clang')
+        print('WARNING: could not find Clang-C in PATH as `clang`')
+
+    if len(missing_tools) != 0:
+        panic(f'the required components {", ".join(missing_tools)} are missing')
 
 
 def configure_toolchain():
