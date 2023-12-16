@@ -16,11 +16,14 @@ PATH:
 - Clang-C
 - Makefile
 
-To begin, you'll need to run the setup script, `setup.py`. This will verify the
-toolchain components, and then automatically register a toolchain configuration.
-If you're missing any toolchain components, the script will notify you at this
-step. If you change any of the toolchain components, you can re-run the script
-to update your toolchain configuration.
+Use `make` (or `make run`) to build and run the server. To build the server
+without running it, use `make build`. The server executable is called `server`.
 
-After setup, use `make` to build and start the server. To build the server
-without running it, use `make build`. The server binary is called `server`.
+The first time you build the server, a setup script will run. This script
+verifies that the requried toolchain components are installed, and then
+generates and stores a toolchain configuration.
+
+To remove old build artifacts in preparation for building from scratch, use
+`make clean`. This will also remove the stored toolchain configuration. You
+should run `make clean` whenever you update or modify a toolchain component,
+such as your Clang-C installation.

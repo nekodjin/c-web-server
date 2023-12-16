@@ -16,6 +16,7 @@ def main():
     verify_interpreter()
     verify_toolchain()
     configure_toolchain()
+    write_setup_artifact()
     print('All set up!')
 
 
@@ -67,6 +68,13 @@ def configure_toolchain():
 
     if gprconfig_invocation.returncode != 0:
         panic('gprconfig failed')
+
+
+def write_setup_artifact():
+    with open('.setup_artifact', 'w') as artifact:
+        # the artifact doesn't need to contain
+        # anything, it just needs to exist.
+        artifact.write('')
 
 
 @alias_for(shutil.which)
