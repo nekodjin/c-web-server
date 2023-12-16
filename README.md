@@ -29,3 +29,24 @@ To remove old build artifacts in preparation for building from scratch, use
 `make clean`. This will also remove the stored toolchain configuration. You
 should run `make clean` whenever you update or modify a toolchain component,
 such as your Clang-C installation.
+
+## Troubleshooting
+
+In some cases, GPRConfig may fail to detect your installation of Clang-C. If
+this happens, you will need to perform manual setup. To do this, run the command
+`gprconfig` with no arguments. GPRConfig will show you a list of detected
+compilers - select any compiler labelled 'for C', and enter the associated
+number. Press enter, followed by 's', followed by enter. GPRConfig will generate
+a `default.cgpr` file storing your configuration. To change the configuration,
+repeat this process.
+
+Note that the server's build configuration makes certain assumptions about the
+command-line API that the compiler will expose - namely, that the compiler
+supports all of the Clang-C arguments. If you manually chose a compiler that
+does not support these arguments, you may get some build errors. Either select
+a more appropriate compiler, or edit the switches passed to the C compiler in
+`server.gpr`.
+
+After manually configuring your toolchain, you will need to create a setup
+artifact to inform Makefile that setup is already complete. Just run the command
+`touch .setup_artifact`.
