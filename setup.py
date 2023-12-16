@@ -1,7 +1,6 @@
 #!/bin/env python3
 
 import sys
-import os
 import shutil
 import subprocess
 
@@ -75,7 +74,7 @@ def get_tool(): ...
 
 
 def tool_exists(tool):
-    return get_tool(tool) != None
+    return get_tool(tool) is not None
 
 
 def panic(message):
